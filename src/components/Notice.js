@@ -1,4 +1,4 @@
-import './Notice.css'
+import './css/Notice.css'
 
 function RandomAmount() {
     let return_num = "";
