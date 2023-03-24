@@ -52,7 +52,7 @@ function NavBar() {
                     회사소개
                 </Menu.Item>
                 <Menu.Item key="vote">
-                    투표하기
+                    <NavLink to={"/votelist"}>투표하기</NavLink>
                 </Menu.Item>
                 <Menu.Item key="notice">
                     <NavLink to={"/notice"}>공지사항</NavLink>

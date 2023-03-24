@@ -6,10 +6,10 @@ function Notice(props) {
     return (
         <section>
             {/*header*/}
-            <div className="notice_header_wrap">
-                <div className="notice_header">
+            <div className="notice_header_wrap header_wrap">
+                <div className="notice_header _header">
                     <div className="notice_header_title"><h2>Notice</h2></div>
-                    <div className="notice_header_sub">
+                    <div className="notice_header_sub _header_sub">
                         <p>This page exists for notice.</p>
                         <div className="notice_header_searchBar">
                             <select className="notice_header_searchBar_select">
@@ -38,7 +38,7 @@ function Notice(props) {
                         <th>Date</th>
                     </tr>
                     </thead>
-                    <tbody className={"notice_table_body"}>
+                    <tbody className={"notice_table_body table_body"}>
                     {NoticeList(notice)}
                     </tbody>
                 </table>

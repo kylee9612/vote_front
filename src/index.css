@@ -82,3 +82,57 @@ header{
   left: 50%;
   transform: translate(-50%,-50%);
 }
+
+.header_wrap , .body_wrap{
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  padding: 20px 0px 75px 0px;
+
+}
+._header {
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+._header h2{
+  font-size: 30px;
+  text-align: left;
+}
+._header_sub{
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.table_body{
+  text-align : left;
+}
+._searchBar_select{
+  border-style: none;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+}
+._searchBar_input{
+  border-style: none;
+  background-color: white;
+  outline: none;
+}
+._searchBar_btn{
+  border-style: none;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+}
+._searchBar{
+  height: 20px;
+  border-bottom: 2px solid #000;
+}
+._body_wrap{
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  padding: 20px 0px 75px 0px;
+
+}

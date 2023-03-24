@@ -1,0 +1,16 @@
+.voteList_ul{
+    margin: auto;
+    width : 1280px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.voteList_ul > li {
+    width: 426px;
+    height: 430px;
+    border: #696969 solid ;
+    margin: 5%;
+}

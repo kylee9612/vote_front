@@ -1,9 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+
+/** page **/
 import Header from './components/header';
 import Main from './components/main'
-import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Notice from "./components/Notice";
+import VoteList from "./components/VoteList";
+/** page **/
+
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import React from "react";
 
 function App() {
@@ -13,6 +18,7 @@ function App() {
                 <Header/>
                 <Routes>
                     <Route exact path={"/"} element={<Main/>}></Route>
+                    <Route path="votelist" element={<VoteList/>}/>
                     <Route path="notice" element={<Notice/>}/>
                 </Routes>
             </BrowserRouter>
