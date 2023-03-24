@@ -127,5 +127,12 @@ header{
   padding:5rem 0;
 }
 h2{
-  text-transform: uppercase;
+  color: #000;
+  text-transform:uppercase;
+  letter-spacing: .3vw;
+
+  font-size: 1.13vw;
+
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
 }

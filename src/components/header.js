@@ -16,12 +16,12 @@ function Header() {
     const { pathname } = useLocation();
     const Logo = styled.h1`
         color: ${(props) =>
-        (props.current ? "#fff":"#000")
-    };
+            (props.current ? "#fff":"#000")
+         };
     `;
 
     return(
-        <header>
+        <header className={"header"}>
             {/*<h1 onClick={toHome} current={pathname === "/"}>VOTE</h1>*/}
              <Logo onClick={toHome} current={pathname === "/"}>VOTE</Logo>
             <NavBar></NavBar>

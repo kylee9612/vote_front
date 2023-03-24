@@ -4,7 +4,7 @@ function Notice(props) {
     const notice = NoticeDummyList();
 
     return (
-        <section className={"content"} >
+        <section className={"content"}>
             {/*header*/}
             <div className="notice_header_wrap header_wrap">
                 <div className="notice_header _header">
@@ -51,6 +51,8 @@ function Notice(props) {
 export default Notice;
 
 
+
+
 function NoticeList(notice) {
     return (notice.map ( ( notice, index) =>(
                 <tr key={index}>
@@ -60,6 +62,8 @@ function NoticeList(notice) {
                 </tr>
                 ) ) )
 }
+
+
 
 function NoticeDummyList() {
     let NoticeList = new Array();
