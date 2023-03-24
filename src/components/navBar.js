@@ -3,7 +3,7 @@ import { Menu, Button } from 'antd';
 import styled from 'styled-components';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { MenuOutlined, MenuFoldOutlined } from '@ant-design/icons';
-import { Outlet, NavLink} from 'react-router-dom';
+import {Outlet, NavLink, useLocation} from 'react-router-dom';
 import Notice from './Notice';
 
 
@@ -19,6 +19,27 @@ const NavTop = styled.div`
   }
 `;
 
+const StyledButton = styled(Button)`
+  color: #fff;
+  font-weight: normal;
+  
+    color: ${(props) =>
+        (props.current ? "#fff":"#000")
+    };
+
+  :not(:disabled):hover {
+    background:none;
+    color: #000;
+  }
+
+`;
+
+const StyledMenu = styled(Menu)`
+    background: ${(props) =>
+    (props.current ? "rgba(255,255,255,.3)":"rgba(0,0,0,.7)")
+};
+`
+
 function NavBar() {
     const [toggleMenu, setToggleMenu] = useState(false)
     const [toggleBar, setToggleBar] = useState(true)
@@ -32,32 +53,36 @@ function NavBar() {
         setToggleMenu(!toggleMenu)
         setToggleBar(!toggleBar)
     }
+
+    const { pathname } = useLocation();
     return(
 
     <div>
         <NavTop>
-            <Button type={"primary"} onClick={toggleChange} style={{marginBottom: 16}}>
+            <StyledButton type={"primary"} onClick={toggleChange} style={{marginBottom: 16}} className={"button"} current={pathname === "/"}>
                 {toggleBar ? <MenuOutlined /> : <MenuFoldOutlined />}
-            </Button>
+            </StyledButton>
         </NavTop>
         {toggleMenu &&
-            <Menu
+            <StyledMenu
                 defaultSelectedKeys={['1']}
                 mode="inline"
                 theme="light"
                 inlineCollapsed={toggleBar}
                 onClick={onMenuClick}
+                className={"menu-ul"}
+                current={pathname === "/"}
             >
-                <Menu.Item key="info">
+                <Menu.Item key="info" className={"menu-li"}>
                     회사소개
                 </Menu.Item>
-                <Menu.Item key="vote">
+                <Menu.Item key="vote" className={"menu-li"}>
                     <NavLink to={"/votelist"}>투표하기</NavLink>
                 </Menu.Item>
-                <Menu.Item key="notice">
+                <Menu.Item key="notice" className={"menu-li"}>
                     <NavLink to={"/notice"}>공지사항</NavLink>
                 </Menu.Item>
-            </Menu>
+            </StyledMenu>
 
         }
     </div>);
