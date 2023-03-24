@@ -92,13 +92,13 @@ function NoticeDummyList() {
         title: "Show the Coin List for free",
         date: '2022.11.23'
     }
-    for(var i = 0 ; i < 17 ; i ++){
-        let pattenNun = i%4;
-        NoticeList[i] = NoticeList[(pattenNun)];
-        console.log(NoticeList[i].num + '   i   ' + i)
-        NoticeList[i].num = i;
-        console.log(NoticeList[i])
-    }
+    // for(var i = 0 ; i < 17 ; i ++){
+    //     let pattenNun = i%4;
+    //     NoticeList[i] = NoticeList[(pattenNun)];
+    //     console.log(NoticeList[i].num + '   i   ' + i)
+    //     NoticeList[i].num = i;
+    //     console.log(NoticeList[i])
+    // }
     return NoticeList
 }
 
