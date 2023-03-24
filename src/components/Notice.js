@@ -1,7 +1,43 @@
 import './css/Notice.css'
+import {useState} from "react";
 
 function Notice(props) {
     const notice = NoticeDummyList();
+    /** Search 기능 **/
+    const [searchText, setSearchText] = useState("");
+    const [searchType, setSearchType] = useState("");
+
+    // function onChangeSearch(type ,e){
+    //     e.preventDefault();
+    //     if(type = "type"){
+    //         setSearchType(e.target.value);
+    //     }else if(type = "text"){
+    //         setSearchType(e.target.value);
+    //     }
+    // }
+
+
+    const onChangeSearchText = (e) =>{
+        e.preventDefault();
+        setSearchText(e.target.value);
+        // console.log("text::: "+ searchText);
+    }
+    const onChangeSearchType = (e) =>{
+        e.preventDefault();
+        setSearchType(e.target.value);
+        // console.log("text::: "+ searchType);
+    }
+
+    const searchHandler = (e) =>{
+        const searchFilter = {
+            "type" : searchType,
+            "text" : searchText
+        }
+
+        // alert("searchFilter::: "+ searchFilter);
+        console.log(searchFilter);
+    }
+    /** Search 기능 **/
 
     return (
         <section>
@@ -12,13 +48,13 @@ function Notice(props) {
                     <div className="notice_header_sub _header_sub">
                         <p>This page exists for notice.</p>
                         <div className="notice_header_searchBar">
-                            <select className="notice_header_searchBar_select">
+                            <select className="notice_header_searchBar_select" onChange={onChangeSearchType}>
                                 <option value="0">Title</option>
                                 <option value="1">Content</option>
                                 <option value="2">Title+Content</option>
                             </select>
-                            <input className="notice_header_searchBar_input" type={"text"} placeholder={"Search"}/>
-                            <input className="notice_header_searchBar_btn" type={"button"} value="▼"/>
+                            <input className="notice_header_searchBar_input" id="search_text" type={"text"} placeholder={"Search..."} onChange={onChangeSearchText}/>
+                            <input className="notice_header_searchBar_btn" type={"button"} value="▼" onClick={searchHandler}/>
                         </div>
                     </div>
                 </div>
