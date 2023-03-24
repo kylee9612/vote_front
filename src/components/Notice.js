@@ -4,7 +4,7 @@ function Notice(props) {
     const notice = NoticeDummyList();
 
     return (
-        <section>
+        <section className={"content"}>
             {/*header*/}
             <div className="notice_header_wrap">
                 <div className="notice_header">
