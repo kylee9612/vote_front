@@ -94,6 +94,7 @@ header{
   flex-direction: column;
   margin-right: auto;
   margin-left: auto;
+  margin:5rem auto;
   position: relative;
 }
 ._header h2{
