@@ -69,3 +69,7 @@
 .notice_table_body tr{
     border-bottom: 1px solid #eee;
 }
+.page{
+    text-align: center;
+    margin: 1%;
+}
