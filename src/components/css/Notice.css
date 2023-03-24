@@ -4,14 +4,14 @@
 }
 .notice_header_wrap , .notice_body_wrap{
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-    padding: 20px 0px 75px 0px;
+    padding: 1rem 0;
 
 }
 .notice_header {
     max-width: 1280px;
     display: flex;
     flex-direction: column;
-    margin:5rem auto;
+    margin:2rem auto;
     position: relative;
 }
 /*.notice_header ::after{*/
@@ -63,10 +63,13 @@
 }
 .notice_table_head {
     border-bottom: 2px solid #000;
+    line-height: 3rem;
 
 }
 .notice_table_body tr{
     border-bottom: 1px solid #eee;
+    line-height: 5rem;
+    cursor: pointer;
 }
 .page{
     text-align: center;

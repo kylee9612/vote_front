@@ -4,7 +4,7 @@ function Notice(props) {
     const notice = NoticeDummyList();
 
     return (
-        <section>
+        <section className={"content"} >
             {/*header*/}
             <div className="notice_header_wrap header_wrap">
                 <div className="notice_header _header">
@@ -18,7 +18,7 @@ function Notice(props) {
                                 <option value="2">Title+Content</option>
                             </select>
                             <input className="notice_header_searchBar_input" type={"text"} placeholder={"Search"}/>
-                            <input className="notice_header_searchBar_btn" type={"button"} value="▼"/>
+                            <input className="notice_header_searchBar_btn" type={"button"} value="찾기"/>
                         </div>
                     </div>
                 </div>
