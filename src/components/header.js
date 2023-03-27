@@ -20,12 +20,18 @@ function Header() {
          };
     `;
 
+    const HeaderStyled = styled.header`
+        background: ${(props) =>
+        (props.current ? "transparent":"#fff")
+    };
+    `
+
     return(
-        <header className={"header"}>
+        <HeaderStyled className={"header"} current={pathname === "/"}>
             {/*<h1 onClick={toHome} current={pathname === "/"}>VOTE</h1>*/}
-             <Logo onClick={toHome} current={pathname === "/"}>VOTE</Logo>
+             <Logo onClick={toHome} current={pathname === "/"} className={"header-logo"}>VOTE</Logo>
             <NavBar></NavBar>
-        </header>
+        </HeaderStyled>
     )
 }
 export default Header;

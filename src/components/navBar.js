@@ -13,6 +13,7 @@ const NavTop = styled.div`
   justify-content: right;
   position:fixed;
   top:5%;
+  left:.3%;
   button {
     background: transparent;
     border: none;
