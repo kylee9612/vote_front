@@ -5,7 +5,7 @@ function VoteList(props){
 
 
    return(
-    <section>
+    <section className={"content"} >
         <div className="voteList_header_wrap header_wrap" >
             <div className="voteList_header _header">
                 <div className="voteList_header_title"><h2>Vote List</h2></div>

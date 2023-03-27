@@ -16,16 +16,22 @@ function Header() {
     const { pathname } = useLocation();
     const Logo = styled.h1`
         color: ${(props) =>
-        (props.current ? "#fff":"#000")
-    };
+            (props.current ? "#fff":"#000")
+         };
     `;
 
+    const HeaderStyled = styled.header`
+        background: ${(props) =>
+        (props.current ? "transparent":"rgba(255,255,255,.8)")
+    };
+    `
+
     return(
-        <header>
+        <HeaderStyled className={"header"} current={pathname === "/"}>
             {/*<h1 onClick={toHome} current={pathname === "/"}>VOTE</h1>*/}
-             <Logo onClick={toHome} current={pathname === "/"}>VOTE</Logo>
+             <Logo onClick={toHome} current={pathname === "/"} className={"header-logo"}>VOTE</Logo>
             <NavBar></NavBar>
-        </header>
+        </HeaderStyled>
     )
 }
 export default Header;
