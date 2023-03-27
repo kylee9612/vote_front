@@ -22,7 +22,7 @@ function Header() {
 
     const HeaderStyled = styled.header`
         background: ${(props) =>
-        (props.current ? "transparent":"#fff")
+        (props.current ? "transparent":"rgba(255,255,255,.8)")
     };
     `
 

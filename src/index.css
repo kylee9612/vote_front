@@ -129,7 +129,7 @@ header{
 }
 
 .content{
-  height:100vh;
+  min-height:100vh;
   padding:8rem 0;
 }
 h2{
