@@ -4,16 +4,22 @@ import Modal from "./Modal";
 
 
 const Notice = (props) => {
+    /**search Notice List**/
+    const [searchText, setSearchText] = useState("");
+    const [searchType, setSearchType] = useState("0");
+    const onChangeText = (e) => {setSearchText(e.target.value)}
+    const onChangeType = (e) => {setSearchType(e.target.value)}
+    const searchNoticeList = (e) =>{
+        console.log(searchText)
+        console.log(searchType)
+    }
+    /**search Notice List**/
+    /**open Detail**/
     const notice = NoticeDummyList();
-
     const [modalVisibleId, setModalVisibleId] = useState("")
-
-    const onModalHandler = id => {
-        setModalVisibleId(id)
-    }
-    const onCloseHandler = () => {
-        setModalVisibleId("")
-    }
+    const onModalHandler = id => {setModalVisibleId(id)}
+    const onCloseHandler = () => {setModalVisibleId("")}
+    /**open Detail**/
 
     function NoticeList(notice) {
         return (notice.map((notice, index) => (
@@ -47,13 +53,13 @@ const Notice = (props) => {
                     <div className="notice_header_sub _header_sub">
                         <p>This page exists for notice.</p>
                         <div className="notice_header_searchBar _searchBar">
-                            <select className="notice_header_searchBar_select">
-                                <option value="0">Title</option>
-                                <option value="1">Content</option>
-                                <option value="2">Title+Content</option>
+                            <select className="notice_header_searchBar_select" onChange={onChangeType} >
+                                <option value="0" selected>Title</option>
+                                <option value="1"         >Content</option>
+                                <option value="2"         >Title+Content</option>
                             </select>
-                            <input className="notice_header_searchBar_input" type={"text"} placeholder={"Search"}/>
-                            <input className="notice_header_searchBar_btn" type={"button"} value="▼"/>
+                            <input className="notice_header_searchBar_input" type={"text"} placeholder={"Search"} onChange={onChangeText}/>
+                            <input className="notice_header_searchBar_btn" type={"button"} value="▼" onClick={searchNoticeList}/>
                         </div>
                     </div>
                 </div>
