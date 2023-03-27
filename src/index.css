@@ -129,6 +129,7 @@ header{
 }
 
 .content{
+  height:100vh;
   padding:8rem 0;
 }
 h2{
@@ -149,3 +150,5 @@ h2{
           'GRAD' 0,
           'opsz' 48
 }
+
+
