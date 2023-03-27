@@ -11,14 +11,14 @@ function Notice(props) {
                     <div className="notice_header_title"><h2>Notice</h2></div>
                     <div className="notice_header_sub _header_sub">
                         <p>This page exists for notice.</p>
-                        <div className="notice_header_searchBar">
+                        <div className="notice_header_searchBar _searchBar">
                             <select className="notice_header_searchBar_select">
                                 <option value="0">Title</option>
                                 <option value="1">Content</option>
                                 <option value="2">Title+Content</option>
                             </select>
                             <input className="notice_header_searchBar_input" type={"text"} placeholder={"Search"}/>
-                            <input className="notice_header_searchBar_btn" type={"button"} value="찾기"/>
+                            <input className="notice_header_searchBar_btn" type={"button"} value="▼"/>
                         </div>
                     </div>
                 </div>
@@ -62,8 +62,6 @@ function NoticeList(notice) {
                 </tr>
                 ) ) )
 }
-
-
 
 function NoticeDummyList() {
     let NoticeList = new Array();

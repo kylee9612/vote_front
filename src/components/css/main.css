@@ -30,6 +30,12 @@ h1{
     color: #50FF6C;
 }
 
+.txt-box h3 span::selection{
+    background: #50FF6C;
+    color:#000;
+}
+
+
 .layer{
     background-color: rgba(0, 0, 0, 0.8);
     position: absolute;

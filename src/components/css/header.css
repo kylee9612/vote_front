@@ -57,15 +57,24 @@ svg {
 /*    color:#000;*/
 /*    font-weight: 700;*/
 /*}*/
-
-.menu-li a:hover{
-
-}
-
 :where(.css-dev-only-do-not-override-mxhywb).ant-menu-light li{
     font-size:1.1vw;
     padding:2rem 0 ;
 }
+
+.top-menu ul li{
+    /*color:#fff;*/
+    position:fixed;
+    left:95%;
+    top:5%;
+}
+
+.top-menu ul li .material-symbols-outlined{
+    font-size:2vw;
+}
+
+
+
 
 
 
