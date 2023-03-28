@@ -17,10 +17,18 @@ const NoticeList = (props) => {
     const [searchType, setSearchType] = useState("0");
     const [page, setPage] = useState("1");
 
-    useEffect(() => {
-        axios.get('/api/notice/getNoticeList')
-            .then(res => console.log(res))
-            .catch()
+    const noticeUpdate = useEffect(() => {
+        axios.get('/api/notice/getNoticeList',{
+            params: {
+                "searchText" : searchText,
+                "searchType" : searchType,
+                "page"       : page
+            }
+        }).then(function (response){
+            console.log("response :: "+response.data);
+        }).catch(function (error){console.log('error'+ error.data)
+        }).finally(function (fi){console.log("fi"+fi.data)})
+
     })
 
     const searchNoticeList = (e) => {
@@ -36,6 +44,7 @@ const NoticeList = (props) => {
         // }).catch(function (error){
         //
         // })
+        noticeUpdate()
     }
     /**search NoticeList List**/
 
@@ -73,6 +82,7 @@ const NoticeList = (props) => {
                     </thead>
                     <tbody className={"notice_table_body table_body"}>
                         {/*<Notice notice={notice}/>*/}
+
                     </tbody>
                 </table>
             </div>
