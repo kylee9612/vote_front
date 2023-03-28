@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import axios from 'axios';
 /** CSS **/
 import './css/NoticeList.css';
 
@@ -9,14 +10,32 @@ import Notice from "./Notice";
 
 
 const NoticeList = (props) => {
-    const notice = NoticeDummyList();
+    const notice = NoticeDummyList
+
     /**search NoticeList List**/
     const [searchText, setSearchText] = useState("");
     const [searchType, setSearchType] = useState("0");
+    const [page, setPage] = useState("1");
+
+    useEffect(() => {
+        axios.get('/api/notice/getNoticeList')
+            .then(res => console.log(res))
+            .catch()
+    })
+
     const searchNoticeList = (e) => {
         console.log(e)
         console.log(searchText)
         console.log(searchType)
+        // axios.get('/api/notice/getNoticeList',{
+        //     "searchText"    :   searchText ,
+        //     "searchType"    :   searchType ,
+        //     "page"          :   page
+        // }).then(function (response){
+        //
+        // }).catch(function (error){
+        //
+        // })
     }
     /**search NoticeList List**/
 
@@ -53,7 +72,7 @@ const NoticeList = (props) => {
                     </tr>
                     </thead>
                     <tbody className={"notice_table_body table_body"}>
-                        <Notice notice={notice}/>
+                        {/*<Notice notice={notice}/>*/}
                     </tbody>
                 </table>
             </div>
