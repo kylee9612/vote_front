@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import main_img from '../images/main.jpg'
-import './css/main.css'
+import main_img from '../../images/main.jpg'
+import '../css/Main.css'
 import {Outlet} from "react-router-dom";
 
 

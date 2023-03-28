@@ -3,8 +3,8 @@ import './App.css';
 
 /** page **/
 import Header from './components/header';
-import Main from './components/main'
-import Notice from "./components/Notice";
+import Main from './components/Util/Main'
+import NoticeList from "./components/NoticeList";
 import VoteList from "./components/VoteList";
 import Footer from "./components/footer"
 /** page **/
@@ -21,7 +21,7 @@ const App = (props) => {
                 <Routes>
                     <Route exact path={"/"} element={<Main/>}></Route>
                     <Route path="votelist" element={<VoteList/>}/>
-                    <Route path="notice" element={<Notice/>}/>
+                    <Route path="notice" element={<NoticeList/>}/>
                 </Routes>
                 <Footer/>
             </BrowserRouter>

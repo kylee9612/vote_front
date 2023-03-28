@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { MenuOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import {Outlet, NavLink, useLocation} from 'react-router-dom';
-import Notice from './Notice';
+import NoticeList from './NoticeList';
 
 
 const NavTop = styled.div`
