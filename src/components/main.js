@@ -23,7 +23,7 @@ function Main(){
 
                     return result;
                 });
-            },300);
+            },550);
 
             return()=>{
                 clearInterval(typingInterval);

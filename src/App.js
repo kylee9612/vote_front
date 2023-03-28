@@ -7,6 +7,7 @@ import Main from './components/main'
 import Notice from "./components/Notice";
 import VoteList from "./components/VoteList";
 import Footer from "./components/footer"
+import Alert from "./components/sweetalert"
 /** page **/
 
 import {BrowserRouter, Route, Routes} from "react-router-dom";
@@ -23,7 +24,9 @@ function App() {
                     <Route path="votelist" element={<VoteList/>}/>
                     <Route path="notice" element={<Notice/>}/>
                 </Routes>
+                <Alert/>
                 <Footer/>
+
             </BrowserRouter>
 
         </div>
