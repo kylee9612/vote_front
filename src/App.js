@@ -24,7 +24,6 @@ function App() {
                     <Route path="votelist" element={<VoteList/>}/>
                     <Route path="notice" element={<Notice/>}/>
                 </Routes>
-                <Alert/>
                 <Footer/>
 
             </BrowserRouter>
