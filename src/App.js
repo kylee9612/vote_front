@@ -12,7 +12,7 @@ import Footer from "./components/footer"
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import React from "react";
 
-function App() {
+const App = (props) => {
     return (
         <div className="App">
 
