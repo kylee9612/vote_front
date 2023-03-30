@@ -16,10 +16,12 @@ const NoticeList = (props) => {
     const [searchText, setSearchText] = useState("");
     const [searchType, setSearchType] = useState("0");
     const [page, setPage] = useState("1");
+    const [notice, setNotice] = useState([]);
 
-    let noticeList;
+    let index = 0;
 
     useEffect(() => {
+        let noticeList = [];
         const param = {
             "searchText": searchText,
             "searchType": searchType,
@@ -27,17 +29,12 @@ const NoticeList = (props) => {
         }
         axios.get('/api/notice/getNoticeList', param
         ).then((response) => {
-            console.log(response)
-            console.log(
-                "asd ::" +
-                Array.from(response.data).map((notice, index) => {
-                    console.log("notice :: " + notice)
-                    console.log("notice.nt_contents :: " + notice.nt_contents)
-                }))
-            noticeList = response.data;
+            response.data.map((element => {
+                noticeList.push(element);
+            }))
+            setNotice(noticeList)
         }).catch((error) => {
             alert('error' + error)
-            noticeList = null;
         })
     });
 
@@ -81,20 +78,16 @@ const NoticeList = (props) => {
                     </tr>
                     </thead>
                     <tbody className={"notice_table_body table_body"}>
-                    {noticeList.map((element,index)=>(
-                        <Notice
-                            notice={element}
-                            searchText={searchText}
-                            searchType={searchType}
-                            page={page}
-                        />
-                    ))}
-                    <Notice
-
-                        searchText={searchText}
-                        searchType={searchType}
-                        page={page}
-                    />
+                    {
+                        notice.map((element) => (
+                            <Notice
+                                key={element.nt_no}
+                                notice={element}
+                                searchText={searchText}
+                                searchType={searchType}
+                                page={page}
+                            />
+                        ))}
                     </tbody>
                 </table>
             </div>
