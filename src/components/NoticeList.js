@@ -17,7 +17,29 @@ const NoticeList = (props) => {
     const [searchType, setSearchType] = useState("0");
     const [page, setPage] = useState("1");
 
+    let noticeList;
 
+    useEffect(() => {
+        const param = {
+            "searchText": searchText,
+            "searchType": searchType,
+            "page": page
+        }
+        axios.get('/api/notice/getNoticeList', param
+        ).then((response) => {
+            console.log(response)
+            console.log(
+                "asd ::" +
+                Array.from(response.data).map((notice, index) => {
+                    console.log("notice :: " + notice)
+                    console.log("notice.nt_contents :: " + notice.nt_contents)
+                }))
+            noticeList = response.data;
+        }).catch((error) => {
+            alert('error' + error)
+            noticeList = null;
+        })
+    });
 
     const searchNoticeList = (e) => {
         console.log(e)
@@ -59,11 +81,20 @@ const NoticeList = (props) => {
                     </tr>
                     </thead>
                     <tbody className={"notice_table_body table_body"}>
+                    {noticeList.map((element,index)=>(
                         <Notice
-                                searchText  =   {searchText}
-                                searchType  =   {searchType}
-                                page        =   {page}
+                            notice={element}
+                            searchText={searchText}
+                            searchType={searchType}
+                            page={page}
                         />
+                    ))}
+                    <Notice
+
+                        searchText={searchText}
+                        searchType={searchType}
+                        page={page}
+                    />
                     </tbody>
                 </table>
             </div>
