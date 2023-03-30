@@ -36,7 +36,7 @@ const NoticeList = (props) => {
         }).catch((error) => {
             alert('error' + error)
         })
-    });
+    },[]);
 
     const searchNoticeList = (e) => {
         console.log(e)
