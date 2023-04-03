@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import NavBar from './navBar'
 
+import './css/sweetalert.css';
 import './css/header.css'
 import {useNavigate, useLocation} from "react-router-dom";
 import styled from 'styled-components';

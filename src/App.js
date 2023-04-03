@@ -7,7 +7,6 @@ import Main from './components/Util/Main'
 import NoticeList from "./components/NoticeList";
 import VoteList from "./components/VoteList";
 import Footer from "./components/footer"
-import Alert from "./components/sweetalert"
 /** page **/
 
 import {BrowserRouter, Route, Routes} from "react-router-dom";
