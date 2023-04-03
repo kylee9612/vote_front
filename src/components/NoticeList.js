@@ -45,7 +45,7 @@ const NoticeList = (props) => {
     },[searchText, searchType , curPage]);
 
     function searchNoticeList(){
-        alert();
+
     }
     /**search NoticeList List**/
 

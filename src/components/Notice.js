@@ -10,7 +10,15 @@ function Notice({notice, searchText, searchType}) {
     let returnMap = "";
     /**open Detail**/
     const [modalVisibleId, setModalVisibleId] = useState("")
+    // const [id , setId] = useState();
     const onModalHandler = id => {
+        // setId(e);
+        console.log(id)
+        const url = "/api/notice/increaseViews"
+        const params = {
+            "nt_no" : id
+        }
+        axios.post(url,params);
         setModalVisibleId(id)
     }
     const onCloseHandler = () => {
@@ -23,7 +31,7 @@ function Notice({notice, searchText, searchType}) {
             <td onClick={() => onModalHandler(notice.nt_no)}>{notice.nt_no}</td>
             <td onClick={() => onModalHandler(notice.nt_no)}>{notice.nt_title}</td>
             <td onClick={() => onModalHandler(notice.nt_no)}
-                style={{textAlign: 'center'}}>{notice.nt_count}</td>
+                style={{textAlign: 'center'}}>{notice.nt_views}</td>
             <td onClick={() => onModalHandler(notice.nt_no)}>{notice.reg_date}</td>
 
             <Modal id={notice.nt_no}
@@ -32,7 +40,7 @@ function Notice({notice, searchText, searchType}) {
                    header={notice.nt_title}
                    contents={notice.nt_contents}
                    date={notice.reg_date}
-                   count={notice.nt_count}
+                   count={notice.nt_views}
             />
         </tr>
     )
