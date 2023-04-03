@@ -1,50 +1,53 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState } from "react";
 import axios from 'axios';
 /** CSS **/
 import './css/NoticeList.css';
-
-
 /** Component **/
 import Search from "./Util/Search";
+import Page from "./Util/Page";
 import Notice from "./Notice";
-
 
 const NoticeList = (props) => {
     // const notice = NoticeDummyList
 
     /**search NoticeList List**/
     const [searchText, setSearchText] = useState("");
-    const [searchType, setSearchType] = useState("0");
-    const [page, setPage] = useState("1");
+    const [searchType, setSearchType] = useState(0);
     const [notice, setNotice] = useState([]);
+    /**pageNation**/
+    const [curPage, setCurPage] =useState(1);
+    const [lastPage, setLastPage] = useState(1);
+
+    /**pageNation**/
 
     let index = 0;
 
     useEffect(() => {
         let noticeList = [];
-        const param = {
+        const params = {
             "searchText": searchText,
             "searchType": searchType,
-            "page": page
+            "curPage"   : curPage
         }
-        axios.get('/api/notice/getNoticeList', param
+        axios.get('/api/notice/getNoticeList',{params}
         ).then((response) => {
-            response.data.map((element => {
+
+            setLastPage(response.data.data.lastPage);
+
+            response.data.data.noticeList.map((element => {
                 noticeList.push(element);
             }))
+
             setNotice(noticeList)
         }).catch((error) => {
             alert('error' + error)
         })
-    },[]);
+    },[searchText, searchType , curPage]);
 
-    const searchNoticeList = (e) => {
-        console.log(e)
-        console.log(searchText)
-        console.log(searchType)
+    function searchNoticeList(){
+        alert();
     }
     /**search NoticeList List**/
-
 
     return (
         <section className={"content"}>
@@ -85,103 +88,20 @@ const NoticeList = (props) => {
                                 notice={element}
                                 searchText={searchText}
                                 searchType={searchType}
-                                page={page}
                             />
                         ))}
                     </tbody>
                 </table>
             </div>
-
-            <div className="page">◀ 1/1 ▶</div>
+            <Page
+                curPage={curPage}
+                setCurPage = {setCurPage}
+                lastPage={lastPage}
+            />
         </section>
     )
 }
 
 export default NoticeList;
-
-
-// const NoticeDummyList = () => {
-//     let NoticeList = new Array();
-//     NoticeList[0] = {
-//         num: 5,
-//         title: "MJ's coin",
-//         contents: "상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세" +
-//             "내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용" +
-//             "입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용" +
-//             "입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용" +
-//             "입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입" +
-//             "니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세" +
-//             "내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다" +
-//             "상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세" +
-//             "내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세" +
-//             "내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다" +
-//             "상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내" +
-//             "용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입" +
-//             "다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용" +
-//             "입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입" +
-//             "니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니" +
-//             "다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다" +
-//             "상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다" +
-//             "상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세" +
-//             "내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내" +
-//             "용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입" +
-//             "니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다" +
-//             "상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내" +
-//             "용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입" +
-//             "니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상" +
-//             "세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입니다상세내용입",
-//         date: '2023.03.23',
-//         count: 23
-//     }
-//     NoticeList[1] = {
-//         num: 4,
-//         title: "Show the Coin List for free",
-//         contents: "Show the Coin List for free",
-//         date: '2023.01.20',
-//         count: 31
-//     }
-//     NoticeList[2] = {
-//         num: 3,
-//         title: "kisan's coin",
-//         contents: "Show the Coin List for free",
-//         date: '2023.01.15',
-//         count: 35
-//     }
-//     NoticeList[3] = {
-//         num: 2,
-//         title: "how to vote",
-//         contents: "Show the Coin List for free",
-//         date: '2023.01.11',
-//         count: 33
-//     }
-//     NoticeList[4] = {
-//         num: 1,
-//         title: "Show the Coin List for free",
-//         contents: "Show the Coin List for free",
-//         date: '2022.11.23',
-//         count: 32
-//     }
-//     // console.log(NoticeList);
-//     return NoticeList
-// }
-
-
-
-
 
 

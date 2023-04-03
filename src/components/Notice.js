@@ -5,7 +5,7 @@ import './css/NoticeList.css';
 import Modal from "./Util/Modal";
 import axios from "axios";
 
-function Notice({notice, searchText, searchType, page}) {
+function Notice({notice, searchText, searchType}) {
     let noticeList = "";
     let returnMap = "";
     /**open Detail**/
@@ -24,7 +24,7 @@ function Notice({notice, searchText, searchType, page}) {
             <td onClick={() => onModalHandler(notice.nt_no)}>{notice.nt_title}</td>
             <td onClick={() => onModalHandler(notice.nt_no)}
                 style={{textAlign: 'center'}}>{notice.nt_count}</td>
-            <td onClick={() => onModalHandler(notice.nt_no)}>{notice.nt_contents}</td>
+            <td onClick={() => onModalHandler(notice.nt_no)}>{notice.reg_date}</td>
 
             <Modal id={notice.nt_no}
                    modalVisibleId={modalVisibleId}
