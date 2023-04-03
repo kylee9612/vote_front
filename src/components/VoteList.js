@@ -1,5 +1,5 @@
 import './css/VoteList.css'
-
+import GetVoteList from "./getVote";
 function VoteList(props){
 
 
@@ -25,13 +25,14 @@ function VoteList(props){
         </div>
         <div className="voteList_body_wrap _body_wrap">
             <ul className="voteList_ul">
-                <li className="voteList_li" >asd</li>
-                <li className="voteList_li" >asd</li>
-                <li className="voteList_li" >asdfd</li>
-                <li className="voteList_li" >fds</li>
-                <li className="voteList_li" >zxcv</li>
-                <li className="voteList_li" >sag</li>
-                <li className="voteList_li" >sdf</li>
+                <GetVoteList/>
+                {/*<li className="voteList_li" >asd</li>*/}
+                {/*<li className="voteList_li" >asd</li>*/}
+                {/*<li className="voteList_li" >asdfd</li>*/}
+                {/*<li className="voteList_li" >fds</li>*/}
+                {/*<li className="voteList_li" >zxcv</li>*/}
+                {/*<li className="voteList_li" >sag</li>*/}
+                {/*<li className="voteList_li" >sdf</li>*/}
             </ul>
         </div>
     </section>
