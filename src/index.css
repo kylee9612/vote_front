@@ -84,24 +84,29 @@ header{
 }
 
 ._header {
+  width:80%;
   max-width: 1280px;
   display: flex;
   flex-direction: column;
-  position: relative;
+  /*position: relative;*/
   margin:0 auto;
 }
 
 .header_wrap{
-  padding: 1rem 0;
+  padding: 1vw 0;
 
 }
 
 ._header_sub{
-  font-size: 15px;
+  font-size: .8vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+._body_wrap{
+  padding-top:1vw;
 }
 .table_body{
   text-align : left;
@@ -113,6 +118,7 @@ header{
   cursor: pointer;
 }
 ._searchBar_input{
+  width:1vw;
   border-style: none;
   background-color: white;
   outline: none;
@@ -122,6 +128,9 @@ header{
   background-color: white;
   outline: none;
   cursor: pointer;
+}
+._searchBar_btn .material-symbols-outlined{
+  font-size: 1vw;
 }
 ._searchBar{
   /*height: 20px;*/
@@ -165,5 +174,7 @@ h2{
   outline: none;
   cursor: pointer;
 }
+
+
 
 

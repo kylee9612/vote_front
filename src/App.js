@@ -2,10 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 
 /** page **/
-import Header from './components/header';
+import Header from './components/Header';
 import Main from './components/Util/Main'
 import NoticeList from "./components/NoticeList";
 import VoteList from "./components/VoteList";
+import Vote from "./components/Vote";
 import Footer from "./components/footer"
 
 /** page **/
@@ -23,6 +24,7 @@ const App = (props) => {
                     <Route exact path={"/"} element={<Main/>}></Route>
                     <Route path="votelist" element={<VoteList/>}/>
                     <Route path="notice" element={<NoticeList/>}/>
+                    <Route path="vote" element={<Vote/>}/>
                 </Routes>
                 <Footer/>
 

@@ -1,16 +1,127 @@
+.view-option{
+    display:flex;
+    justify-content: space-between;
+}
+.voteList_header ul{
+    display:flex;
+    align-items: center;
+
+    padding-top:1vw;
+    color:#777;
+    font-size: .7vw;
+    font-weight: 500;
+}
+.filter ul li{
+    width:3.6vw;
+    min-width: 50px;
+    border:1px solid #777;
+    border-radius: 20px;
+    white-space:nowrap;
+    padding: .5vw 0;
+    margin:0 .3vw;
+}
+
+.sorted ul li{
+    padding:0 .4vw;
+    cursor: pointer;
+}
+
+.sorted ul li:hover{
+    color: #1e1e1e;
+}
+
+.sorted .bar{
+    border-left : 2px solid #666;
+    height:.7vw;
+}
 .voteList_ul{
-    margin: auto;
-    width : 1280px;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    margin: 0 auto;
+    width : 68%;
+    max-width:1280px;
+    /*display: -webkit-box;*/
+    /*display: -ms-flexbox;*/
     display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+    /*-ms-flex-wrap: wrap;*/
+    /*flex-wrap: wrap;*/
     justify-content: space-between;
 }
 .voteList_ul > li {
-    width: 426px;
-    height: 430px;
+    width: 18vw;
+    height: 23vw;
     border: #696969 solid ;
-    margin: 5%;
+    /*margin: 1vw;*/
+    position:relative;
+    cursor: pointer;
+}
+.vote-txt-box-op,.vote-txt-box{
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index:2;
+    white-space:nowrap;
+}
+
+.vote-txt-box-op{
+    color:rgba(255, 255, 255, 0.42);
+}
+
+.vote-txt-box p{
+    color:#fff;
+    font-size:1.3vw;
+    text-align: center;
+    letter-spacing: .2vw;
+    text-shadow: 1px 1px 1px 2px #333;
+}
+
+.vote-txt-box .round{
+    width:3vw;
+    height:3vw;
+    color: #fff;
+    background:#000;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 3vw;
+    font-size: 1vw;
+    font-weight: 500;
+    margin:1vw auto;
+}
+
+.vote-txt-box .round-op{
+    color:#000;
+    background:#fff;
+}
+
+.vote-layer{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index:1;
+    width: 100%;
+    height: 100%;
+}
+
+.vote-layer-white{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.vote-img{
+    position:relative;
+    width: 100%;
+    height: 100%;
+}
+
+.date{
+    position: absolute;
+    top:58%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index:2;
+    white-space:nowrap;
+    font-weight: 400;
+    font-size:.8vw;
+    color:#fff;
+}
+
+.vote-txt-box .txt-black, .txt-black{
+    color:#000;
+    font-weight: 500;
 }
