@@ -7,6 +7,7 @@
     left: 0;
     z-index: 98;
     background-color: rgba(0, 0, 0, 0.6);
+    cursor: auto;
 }
 .modal {
     display: none;
@@ -15,6 +16,7 @@
     top: 50%;
     transform: translate(-50%,-50%);
     z-index: 99;
+    cursor: auto;
 }
 .modal button {
     outline: none;
